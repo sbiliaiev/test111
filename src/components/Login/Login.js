@@ -15,16 +15,12 @@ export default class Login extends React.Component {
 		e.preventDefault();
 	}
 
-	handleLoginChange = (e) => {
-		// console.log('login', e.target.value);
+	handleEmailChange = (e) => {
 		this.setState({login: e.target.value});
-		// this.props.loginHandler(e);
-		this.props.changeLogin(e.target.value);
-		// this.props.loginChange(e.target.value);
+		this.props.changeEmail(e.target.value);
 	}
 
 	handlePasswordChange = (e) => {
-		// console.log('password', e.target.value);
 		this.setState({password: e.target.value});
 		this.props.changePassword(e.target.value);
 		
@@ -38,7 +34,7 @@ export default class Login extends React.Component {
 						Email
 					</Col>
 					<Col sm={10}>
-						<FormControl type="email" placeholder="Email" onChange={this.handleLoginChange} />
+						<FormControl type="email" placeholder="Email" onChange={this.handleEmailChange} />
 					</Col>
 				</FormGroup>
 

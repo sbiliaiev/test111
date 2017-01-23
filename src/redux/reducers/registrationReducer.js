@@ -1,8 +1,8 @@
 export default function(state = {}, action) {
 	switch (action.type) {
-		case "CHANGE_LOGIN":
+		case "CHANGE_REGISTRATION_EMAIL":
 			return {...state, login: action.payload};
-		case "CHANGE_PASSWORD":
+		case "CHANGE_REGISTRATION_PASSWORD":
 			return {...state, password: action.payload};
 		default:
 			return state;
