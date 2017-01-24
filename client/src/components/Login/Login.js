@@ -18,7 +18,6 @@ export default class Login extends React.Component {
 				method: 'POST', 
 				body: JSON.stringify({email: this.state.email, password: this.state.password}),
 				headers: {
-					// 'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
 					'Content-Type': 'application/json; charset=utf-8'
 				},
 			})
@@ -29,15 +28,13 @@ export default class Login extends React.Component {
 	handleEmailChange = (e) => {
 		this.setState({email: e.target.value});
 		this.props.actionCreator(e);
-		// this.props.changeEmail(e.target.value);
 	}
 
 	handlePasswordChange = (e) => {
 		this.setState({password: e.target.value});
 		this.props.actionCreator(e);
-		// this.props.changePassword(e.target.value);
-		
 	}
+	
 	render() {
 		return(
 			<Form horizontal onSubmit={this.handleSubmit}>

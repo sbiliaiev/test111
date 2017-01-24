@@ -56,9 +56,7 @@ export default class Registration extends React.Component {
 
 	handlePasswordChange2 = (e) => {
 		this.setState({password2: e.target.value});
-		// this.props.handler.changeRegistrationFirstname(e.target.value);
 	}
-
 
 	render() {
 		return(

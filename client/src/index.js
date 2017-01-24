@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './redux/state';
 import { Provider } from 'react-redux';
 
-import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import { Router, browserHistory, Route } from 'react-router';
 
 import LoginContainer from './components/Login/LoginContainer';
 import RegistrationContainer from './components/Registration/RegistrationContainer';

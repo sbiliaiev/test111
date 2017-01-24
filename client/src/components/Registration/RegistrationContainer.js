@@ -4,16 +4,12 @@ import Registration from './Registration';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-// import { changeLoginEmail, changeLoginPassword } from "./../redux/actions";
-// import { changeRegistrationEmail, changeRegistrationPassword, changeRegistrationFirstname, changeRegistrationLastname } from "./../redux/actions";
 import { changeRegistrationField } from './../../redux/actions';
-
-import { Link, Route } from 'react-router';
 
 class RegistrationContainer extends Component {
 
 	render() {
-		console.log(this.props.children);
+		console.log(this.state);
 		return (
 			<div className="container">
 				<Registration actionCreator={this.props.changeRegistrationField} />
@@ -23,22 +19,15 @@ class RegistrationContainer extends Component {
 }
 
 function mapStateToProps(state) {
-	// console.log('mapStateToProps', state);
 	return {
-		login: state.loginReducer.login,
-		password: state.loginReducer.password
+		// login: state.loginReducer.login,
+		// password: state.loginReducer.password
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeRegistrationField,
-		// changeLoginEmail,
-		// changeLoginPassword,
-		// changeRegistrationEmail,
-		// changeRegistrationPassword, 
-		// changeRegistrationFirstname, 
-		// changeRegistrationLastname,
 	}, dispatch);
 }
 
