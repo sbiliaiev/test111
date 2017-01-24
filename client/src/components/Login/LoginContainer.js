@@ -1,43 +1,23 @@
 import React, { Component } from 'react';
-import './App.css';
 
-
-import RegistrationContainer from './Registration/RegistrationContainer';
-import LoginContainer from './Login/LoginContainer';
+import Login from './Login';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 // import { changeLoginEmail, changeLoginPassword } from "./../redux/actions";
 // import { changeRegistrationEmail, changeRegistrationPassword, changeRegistrationFirstname, changeRegistrationLastname } from "./../redux/actions";
-import { changeLoginField, changeRegistrationField } from './../redux/actions';
+import { changeLoginField } from './../../redux/actions';
 
 import { Link, Route } from 'react-router';
 
-import { Navbar, NavItem, Nav } from 'react-bootstrap';
-
-class App extends Component {
+class LoginContainer extends Component {
 
 	render() {
-		// console.log(this.props.children);
+		console.log(this.props.children);
 		return (
 			<div className="container">
-				<Navbar>
-					<Navbar.Header>
-						<Navbar.Brand>
-							<a href="/">Home</a>
-						</Navbar.Brand>
-					</Navbar.Header>
-					<Nav>
-						<NavItem eventKey={1} href="/login">Login</NavItem>
-      					<NavItem eventKey={2} href="/registration">Registration</NavItem>
-					</Nav>
-				</Navbar>
-				
-				{
-					this.props.children	? this.props.children : <h1>Welcome page</h1>	
-				}
+				<Login actionCreator={this.props.changeLoginField} />	
 			</div>
-
 		);
 	}
 }
@@ -53,7 +33,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeLoginField,
-		changeRegistrationField,
 		// changeLoginEmail,
 		// changeLoginPassword,
 		// changeRegistrationEmail,
@@ -63,4 +42,4 @@ function mapDispatchToProps(dispatch) {
 	}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
