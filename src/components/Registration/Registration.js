@@ -3,6 +3,16 @@ import { Form, FormGroup, Col, FormControl, Button, ControlLabel } from 'react-b
 
 export default class Registration extends React.Component {
 
+	constructor() {
+		super();
+		this.state = {
+			email: '',
+			password: '',
+			firstName: '',
+			lastName: '',
+		};
+	}
+
 	handleSubmit = (e) => {
 		e.preventDefault();
 	}
