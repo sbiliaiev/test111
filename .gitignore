@@ -2,6 +2,8 @@
 
 # dependencies
 node_modules
+client/node_modules
+server/node_modules
 
 # testing
 coverage
@@ -16,4 +18,4 @@ npm-debug.log
 
 .vscode/
 
-build/
+client/build/
