@@ -4,7 +4,7 @@ import Registration from './Registration';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeRegistrationField, retrieveRegistrationInfo } from './../../redux/actions';
+import { changeRegistrationField, retrieveRegistrationInfo } from './../../redux/actions/';
 
 class RegistrationContainer extends Component {
 

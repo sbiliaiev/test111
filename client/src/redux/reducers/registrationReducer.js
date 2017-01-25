@@ -8,7 +8,7 @@ export default function(state = {}, action) {
 			return {...state, firstName: action.payload};
 		case "CHANGE_REGISTRATION_LASTNAME":
 			return {...state, lastName: action.payload};
-		case "RETRIEVED_USER_INFO":
+		case "RETRIEVED_REGISTRATION_USER_INFO":
 			return {...state, user: action.payload};
 		default:
 			return state;

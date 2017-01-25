@@ -11,6 +11,7 @@ import { Router, browserHistory, Route } from 'react-router';
 
 import LoginContainer from './components/Login/LoginContainer';
 import RegistrationContainer from './components/Registration/RegistrationContainer';
+import ChatContainer from './components/Chat/ChatContainer';
 
 store.subscribe(() => console.log("new state", store.getState()));
 console.log('here store', store.getState());
@@ -21,6 +22,7 @@ ReactDOM.render(
 			<Route path="/" component={App} >
 				<Route path="registration" component={RegistrationContainer} />
 				<Route path="login" component={LoginContainer} />
+				<Route path="chat" component={ChatContainer} />
 			</Route>
 		</Router>
 	</Provider>,

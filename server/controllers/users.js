@@ -3,7 +3,7 @@ const User = require('../models/user'),
 
 module.exports.getAll = function(req, res, next) {
 	User.find({}, function(err, users) {
-		console.log('HERE IS USERS', users);
+		// console.log('HERE IS USERS', users);
 		if (users && users.length > 0)
 			return res.status(200).send(users);
 		else

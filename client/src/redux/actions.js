@@ -27,7 +27,7 @@ export const retrieveLoginInfo = (data) => dispatch => {
 	.then((res) => res.json())
 	.then((res) => {
 		console.log(res);
-		dispatch({type: 'RETRIEVED_USER_INFO', payload: res});
+		dispatch({type: 'RETRIEVED_LOGIN_USER_INFO', payload: res});
 	});
 }
 
@@ -71,5 +71,21 @@ export const retrieveRegistrationInfo = (data) => dispatch => {
 		headers: {'Content-Type': 'application/json; charset=utf-8'},	
 	})
 	.then((res) => res.json())
-	.then((res) => console.log(res));
+	.then((res) => {
+		console.log(res);
+		dispatch({type: 'RETRIEVED_REGISTRATION_USER_INFO', payload: res});		
+	});
+}
+
+//Chat actions
+export const retrieveUserList = () => dispatch => {
+	fetch('http://localhost:3000/api/users/getall', {
+		method: 'GET', 
+		headers: {'Content-Type': 'application/json; charset=utf-8'}
+	})
+	.then((res) => res.json())
+	.then((res) => {
+		// console.log(res);
+		dispatch({type: 'RETRIEVED_ALL_USERS_INFO', payload: res});
+	});
 }

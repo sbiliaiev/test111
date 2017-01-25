@@ -1,18 +1,42 @@
 import React from 'react';
 
-// import { connect } from "react-redux";
-// import { bindActionCreators } from "redux";
-// import { changeRegistrationField, retrieveRegistrationInfo } from './../../redux/actions';
+import ContactPanel from './ContactPanel';
 
-class RegistrationContainer extends Component {
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { retrieveUserList } from './../../redux/actions';
+
+import { Col } from 'react-bootstrap';
+
+import DialogBox from './DialogBox';
+
+import './Chat.css';
+
+class RegistrationContainer extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			currentUser: 0,
+			messageList: [],
+		};
+	}
+
+	handleCurrentUser = (user_id) => {
+		this.setState({currentuser: user_id});
+	}
+
 	render() {
-		console.log(this.state);
 		return (
-			<div className="container">
-				<Registration 
-					actionCreator={this.props.changeRegistrationField} 
-					retrieveRegistrationInfo={this.props.retrieveRegistrationInfo} 
-				/>
+			<div className="container chat-box">
+				<Col md={4} xs={4}>
+					<ContactPanel 
+						retrieveUserList={this.props.retrieveUserList} 
+						userList={this.props.userList} 
+					/>
+				</Col>
+				<Col md={8} xs={8} className="message-box">
+					<DialogBox />
+				</Col>
 			</div>
 		);
 	}
@@ -20,6 +44,7 @@ class RegistrationContainer extends Component {
 
 function mapStateToProps(state) {
 	return {
+		userList: state.chatReducer.userList,
 		// login: state.loginReducer.login,
 		// password: state.loginReducer.password
 	};
@@ -27,8 +52,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		changeRegistrationField,
-		retrieveRegistrationInfo,
+		retrieveUserList,
 	}, dispatch);
 }
 

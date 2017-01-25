@@ -4,7 +4,7 @@ export default function(state = {}, action) {
 			return {...state, email: action.payload};
 		case "CHANGE_LOGIN_PASSWORD":
 			return {...state, password: action.payload};
-		case "RETRIEVED_USER_INFO":
+		case "RETRIEVED_LOGIN_USER_INFO":
 			return {...state, user: action.payload}
 		default:
 			return state;

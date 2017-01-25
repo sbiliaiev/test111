@@ -18,7 +18,9 @@ class App extends Component {
 					<Nav>
 						<NavItem eventKey={1} href="/login">Login</NavItem>
       					<NavItem eventKey={2} href="/registration">Registration</NavItem>
+      					<NavItem eventKey={3} href="/chat">Chat</NavItem>
 					</Nav>
+					
 				</Navbar>
 				
 				{
