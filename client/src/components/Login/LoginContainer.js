@@ -4,14 +4,17 @@ import Login from './Login';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeLoginField } from './../../redux/actions';
+import { changeLoginField, retrieveLoginInfo } from './../../redux/actions';
 
 class LoginContainer extends Component {
 
 	render() {
 		return (
 			<div className="container">
-				<Login actionCreator={this.props.changeLoginField} />	
+				<Login 
+					actionCreator={this.props.changeLoginField} 
+					retrieveLoginInfo={this.props.retrieveLoginInfo} 
+				/>	
 			</div>
 		);
 	}
@@ -27,6 +30,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeLoginField,
+		retrieveLoginInfo,
 	}, dispatch);
 }
 

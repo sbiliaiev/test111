@@ -14,15 +14,16 @@ export default class Login extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(this.state);
-		fetch('http://localhost:3000/api/auth/login', {
-				method: 'POST', 
-				body: JSON.stringify({email: this.state.email, password: this.state.password}),
-				headers: {
-					'Content-Type': 'application/json; charset=utf-8'
-				},
-			})
-			.then((res) => res.json())
-			.then((res) => console.log(res));
+		this.props.retrieveLoginInfo(this.state);
+		// fetch('http://localhost:3000/api/auth/login', {
+		// 		method: 'POST', 
+		// 		body: JSON.stringify({email: this.state.email, password: this.state.password}),
+		// 		headers: {
+		// 			'Content-Type': 'application/json; charset=utf-8'
+		// 		},
+		// 	})
+		// 	.then((res) => res.json())
+		// 	.then((res) => console.log(res));
 	}
 
 	handleEmailChange = (e) => {

@@ -17,18 +17,19 @@ export default class Registration extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		if (this.state.password === this.state.password2) {
-			fetch('http://localhost:3000/api/auth/register', {
-					method: 'POST', 
-					body: JSON.stringify({
-						email: this.state.email, 
-						password: this.state.password,
-						firstName: this.state.firstName,
-						lastName: this.state.lastName
-					}),
-					headers: {'Content-Type': 'application/json; charset=utf-8'},	
-				})
-				.then((res) => res.json())
-				.then((res) => console.log(res));
+			this.props.retrieveRegistrationInfo(this.state);
+			// fetch('http://localhost:3000/api/auth/register', {
+			// 		method: 'POST', 
+			// 		body: JSON.stringify({
+			// 			email: this.state.email, 
+			// 			password: this.state.password,
+			// 			firstName: this.state.firstName,
+			// 			lastName: this.state.lastName
+			// 		}),
+			// 		headers: {'Content-Type': 'application/json; charset=utf-8'},	
+			// 	})
+			// 	.then((res) => res.json())
+			// 	.then((res) => console.log(res));
 		} else {
 			alert('Passwords don\'t match!');
 		}

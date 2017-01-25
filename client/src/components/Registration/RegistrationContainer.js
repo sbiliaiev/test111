@@ -4,7 +4,7 @@ import Registration from './Registration';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { changeRegistrationField } from './../../redux/actions';
+import { changeRegistrationField, retrieveRegistrationInfo } from './../../redux/actions';
 
 class RegistrationContainer extends Component {
 
@@ -12,7 +12,10 @@ class RegistrationContainer extends Component {
 		console.log(this.state);
 		return (
 			<div className="container">
-				<Registration actionCreator={this.props.changeRegistrationField} />
+				<Registration 
+					actionCreator={this.props.changeRegistrationField} 
+					retrieveRegistrationInfo={this.props.retrieveRegistrationInfo} 
+				/>
 			</div>
 		);
 	}
@@ -28,6 +31,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		changeRegistrationField,
+		retrieveRegistrationInfo,
 	}, dispatch);
 }
 
