@@ -1,4 +1,5 @@
 const AuthenticationController = require('./controllers/authentication'),  
+	UsersController = require('./controllers/users'),  
       express = require('express'),
       passportService = require('./config/passport'),
       passport = require('passport');
@@ -16,11 +17,15 @@ const REQUIRE_ADMIN = "Admin",
 module.exports = function(app) {  
 	// Initializing route groups
 	const apiRoutes = express.Router(),
-		authRoutes = express.Router();
+		authRoutes = express.Router(),
+		usersRoutes = express.Router();
 	
 	//=========================
 	// Auth Routes
 	//=========================
+
+	apiRoutes.use('/users', usersRoutes);
+	usersRoutes.get('/getall', UsersController.getAll);
 
 	// Set auth routes as subgroup/middleware to apiRoutes
 	apiRoutes.use('/auth', authRoutes);

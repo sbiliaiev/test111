@@ -6,30 +6,30 @@ const mongoose = require('mongoose'),
 // User Schema
 //================================
 const UserSchema = new Schema({  
-email: {
-	type: String,
-	lowercase: true,
-	unique: true,
-	required: true
-},
-password: {
-	type: String,
-	required: true
-},
-profile: {
-	firstName: { type: String },
-	lastName: { type: String }
-},
-role: {
-	type: String,
-	enum: ['Member', 'Client', 'Owner', 'Admin'],
-	default: 'Member'
-},
-resetPasswordToken: { type: String },
-resetPasswordExpires: { type: Date }
+	email: {
+		type: String,
+		lowercase: true,
+		unique: true,
+		required: true
+	},
+	password: {
+		type: String,
+		required: true
+	},
+	profile: {
+		firstName: { type: String },
+		lastName: { type: String }
+	},
+	role: {
+		type: String,
+		enum: ['Member', 'Client', 'Owner', 'Admin'],
+		default: 'Member'
+	},
+	resetPasswordToken: { type: String },
+	resetPasswordExpires: { type: Date }
 },
 {
-timestamps: true
+	timestamps: true
 });
 
 // Pre-save of user to database, hash password if password is modified or new
